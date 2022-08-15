@@ -1,6 +1,7 @@
 package com.in28minutes.rest.webservices.restfulwebservices;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,5 +29,12 @@ public class HelloWorldController {
     public HelloWorldBean helloBean(){
         return new HelloWorldBean("hi!");
     }
+
+    @GetMapping(path = "/hello-world-bean/path-variable/{name}")
+    public HelloWorldBean HelloWorldPathVariable(@PathVariable String name){
+        return new HelloWorldBean(String.format("Hey, %s you are doing great!",name));
+    }
+
+
 
 }
